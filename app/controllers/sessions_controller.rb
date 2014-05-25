@@ -6,10 +6,16 @@ class SessionsController < ApplicationController
 		user = User.find_by_email(params[:session][:email])
 		if user && user.authenticate(params[:session][:password])
 			sign_in user
-			redirect_back_or user
+			if params[:session][:appos] == 'ios7'
+				#render 'show'
+				send_back_json user
+			else
+				redirect_back_or user
+			end
 		else
 			flash.now[:error] = 'Invalid email/password combination' # Not quite right!
-			render 'new'		end 
+			render 'new'		
+		end 
 	end
 		
 	def destroy

@@ -4,11 +4,11 @@ class UsersController < ApplicationController
 	before_filter :correct_user, only: [:edit, :update]
 	before_filter :admin_user, only: :destroy
 	
-	
+	respond_to :html, :json
 	
 	def edit
 	end
-	
+		
 	def destroy
 	    User.find(params[:id]).destroy	
 		flash[:success] = "User destroyed."
@@ -21,6 +21,11 @@ class UsersController < ApplicationController
 	
 	def show
 		@user = User.find(params[:id])
+		
+		
+		#format.json { render json: @user, :except=>  [:password, :password_confirm] }
+		#format.json { render json: @user }
+		respond_with @user       # added to respond with json
 	end
 	
 	def new

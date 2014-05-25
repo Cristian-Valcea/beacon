@@ -34,7 +34,12 @@ module SessionsHelper
 	def store_location
 		session[:return_to] = request.fullpath
 	end	
-	
+
+	def send_back_json (the_user)
+		respond_to do |format|
+			format.json { render :json =>  {:success => '1'} }
+		end
+	end	
 	
 	def create
 		user = User.find_by_email(params[:session][:email])
