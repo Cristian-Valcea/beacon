@@ -55,5 +55,10 @@ module Beacon
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-  end
+
+
+	config.serve_static_assets = true
+	config.assets.compile = true
+  
+	end
 end
