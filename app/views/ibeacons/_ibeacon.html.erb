@@ -5,4 +5,9 @@
 	<span class="timestamp">
 		Posted <%= time_ago_in_words(ibeacon.created_at) %> ago. 
 	</span>
+	<% if current_user?(ibeacon.user) %>
+		<%= link_to "delete", ibeacon, method: :delete,
+								confirm: "You sure?",
+								title: ibeacon.beacon_id %>
+	<% end %>
 </li>
