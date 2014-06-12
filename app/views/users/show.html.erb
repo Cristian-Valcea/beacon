@@ -8,6 +8,15 @@
 			</h1>
     	</section>
   	</aside>
+	<div class="span8">
+		<% if @user.ibeacons.any? %>
+			<h3>iBeacons (<%= @user.ibeacons.count %>)</h3>
+			<ol class="ibeacons">
+				<%= render @ibeacons %>
+			</ol>
+			<%= will_paginate @ibeacons %>
+		<% end %>
+	</div>
 </div>
 
 

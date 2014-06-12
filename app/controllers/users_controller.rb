@@ -21,6 +21,8 @@ class UsersController < ApplicationController
 	
 	def show
 		@user = User.find(params[:id])
+		@ibeacons = @user.ibeacons.paginate(page: params[:page]) 
+
 		
 		
 		#format.json { render json: @user, :except=>  [:password, :password_confirm] }

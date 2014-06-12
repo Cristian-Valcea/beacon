@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140524224303) do
+ActiveRecord::Schema.define(:version => 20140611224802) do
+
+  create_table "ibeacons", :force => true do |t|
+    t.string   "beacon_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "ibeacons", ["beacon_id"], :name => "index_ibeacons_on_beacon_id"
+  add_index "ibeacons", ["user_id"], :name => "index_ibeacons_on_user_id"
 
   create_table "microposts", :force => true do |t|
     t.string   "content"

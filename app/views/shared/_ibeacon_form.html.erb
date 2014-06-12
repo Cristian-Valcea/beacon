@@ -1,0 +1,7 @@
+<%= form_for(@ibeacon) do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<div class="field">
+		<%= f.text_area :beacon_id, placeholder: "Add new ibeacon..." %>
+	</div>
+	<%= f.submit "Add", class: "btn btn-large btn-primary" %>
+<% end %>
