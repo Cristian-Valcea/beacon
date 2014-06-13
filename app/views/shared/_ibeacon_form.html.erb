@@ -1,7 +1,13 @@
 <%= form_for(@ibeacon) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 	<div class="field">
-		<%= f.text_area :beacon_id, placeholder: "Add new ibeacon..." %>
+		<%= f.text_field :beacon_id, placeholder: "Add new ibeacon..." %>
 	</div>
+	
+	  <p>
+	    <%= f.file_field :image1 %>
+	  </p> 	
+	
+	
 	<%= f.submit "Add", class: "btn btn-large btn-primary" %>
 <% end %>

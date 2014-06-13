@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140611224802) do
+ActiveRecord::Schema.define(:version => 20140612230040) do
 
   create_table "ibeacons", :force => true do |t|
     t.string   "beacon_id"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "image1"
   end
 
   add_index "ibeacons", ["beacon_id"], :name => "index_ibeacons_on_beacon_id"

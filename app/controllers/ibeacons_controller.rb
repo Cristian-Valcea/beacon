@@ -3,7 +3,8 @@ class IbeaconsController < ApplicationController
 	before_filter :correct_user,	only: :destroy
 	
 	def create
-	@ibeacon = current_user.ibeacons.build(params[:ibeacon]) 
+	@ibeacon = current_user.ibeacons.build(params[:ibeacon])
+
 	if @ibeacon.save
 	    flash[:success] = "iBeacon added!"
 		redirect_to root_path
