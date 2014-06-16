@@ -1,0 +1,17 @@
+<li>
+<span class="beacon_id">
+	ID iBeacon <%= @ibeacon.beacon_id %>
+</span>
+<span class="timestamp">
+	Posted <%= time_ago_in_words(@ibeacon.created_at) %> ago. 
+</span>
+<span class="logo">
+	<%= image_tag @ibeacon.logo_url(:thumb) if @ibeacon.logo?  %>  
+</span>
+<%= @ibeacon.logo.url %>
+<span class="image1">
+	<%= image_tag @ibeacon.image1_url(:thumb) if @ibeacon.image1?  %>  
+</span>
+<%= @ibeacon.image1.url %>
+
+</li>

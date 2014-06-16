@@ -5,6 +5,9 @@
 	<span class="timestamp">
 		Posted <%= time_ago_in_words(ibeacon.created_at) %> ago. 
 	</span>
+	<span class="logo">
+		<%= image_tag ibeacon.logo_url(:thumb) if ibeacon.logo?  %>  
+	</span>
 	<span class="image1">
 		<%= image_tag ibeacon.image1_url(:thumb) if ibeacon.image1?  %>  
 	</span>

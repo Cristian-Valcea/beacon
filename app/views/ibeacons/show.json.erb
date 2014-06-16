@@ -1,0 +1,11 @@
+<% if @ibeacon.nil? %>
+{
+	"beacon_id": "not found",	
+}
+<%else%>
+{
+    "beacon_id": "<%= @ibeacon.beacon_id.to_json %>",
+    "imageFile": "<%= @ibeacon.image1.url.to_json %>",
+    "logoFile": "<%= @ibeacon.logo.url.to_json %>"
+}
+<% end %>
