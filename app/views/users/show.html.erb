@@ -3,7 +3,6 @@
 	<aside class="span4"> 
 		<section>
 			<h1>
-				<!--<%= gravatar_for @user, size: 52%>--> 
 				<%= @user.name %>
 			</h1>
     	</section>
@@ -27,4 +26,5 @@
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Add New iBeacon', addbeacon_path(@ibeacon) %> |
 <%= link_to 'Back', users_path %>

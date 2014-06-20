@@ -1,20 +1,23 @@
 <li>
 	<span class="beacon_id">
-		<%= ibeacon.beacon_id %>
-	</span>
-	<span class="timestamp">
-		Posted <%= time_ago_in_words(ibeacon.created_at) %> ago. 
-	</span>
-	<span class="logo">
-		<%= image_tag ibeacon.logo_url(:thumb) if ibeacon.logo?  %>  
+		Beacon :<%= ibeacon.beacon_id %>.
+		<span class="timestamp">
+			Created <%= time_ago_in_words(ibeacon.created_at) %> ago. 
+		</span>
+		<% if current_user?(ibeacon.user) %>
+			<%= link_to 'Edit', edit_ibeacon_path(ibeacon) %>
+			<%= link_to "delete", ibeacon, method: :delete,
+									confirm: "You sure?",
+									title: ibeacon.beacon_id %>
+		<% end %>
 	</span>
 	<span class="image1">
 		<%= image_tag ibeacon.image1_url(:thumb) if ibeacon.image1?  %>  
+	</span><br/>
+	<span class="logo">
+		<%= image_tag ibeacon.logo_url(:thumb) if ibeacon.logo?  %>  
 	</span>
-	
-	<% if current_user?(ibeacon.user) %>
-		<%= link_to "delete", ibeacon, method: :delete,
-								confirm: "You sure?",
-								title: ibeacon.beacon_id %>
-	<% end %>
+	<%= ibeacon.TabButton1 %>
+	<%= ibeacon.TabButton2 %>
+	<%= ibeacon.TabButton3 %>
 </li>

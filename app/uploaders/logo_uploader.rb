@@ -17,7 +17,7 @@ class LogoUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process :resize_to_limit => [20, 20]
+    process :resize_to_limit => [30, 30]
   end
 
 

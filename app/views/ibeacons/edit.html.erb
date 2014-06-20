@@ -1,7 +1,12 @@
-<%= form_for(@ibeacon) do |f| %>
+<% provide(:title, "Edit ibeacon") %>
+<h1>Update your iBeacon</h1>
+
+<div class="row">
+	<div class="span6 offset3">
+	<%= form_for @ibeacon do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
-	<div class="field">
-		<%= f.text_field :beacon_id, placeholder: "Add new ibeacon..." %>
+		
+		 Beacon  <%= @ibeacon.beacon_id %>
 		<%= f.text_field :TabButton1, placeholder: "Tab 1" %>
 		<%= f.text_field :Title1, placeholder: "Title 1" %>
 		<%= f.text_field :Company, placeholder: "Company" %>
@@ -13,22 +18,8 @@
 		<%= f.text_field :Title3, placeholder: "Title 3" %>
 		<%= f.text_area :Description3, placeholder: "Description 3" %>
 
-	</div>
 
 
-
-
-
-	  <p>
-		Add logo
-	    <%= f.file_field :logo %>
-	  </p> 	
-	
-	  <p>
-		Add Image
-	    <%= f.file_field :image1 %>
-	  </p> 	
-	
-	
-	<%= f.submit "Add", class: "btn btn-large btn-primary" %>
-<% end %>
+		<%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+	<% end %>
+</div>

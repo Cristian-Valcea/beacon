@@ -12,6 +12,7 @@ Beacon::Application.routes.draw do
 	match '/signin',  to: 'sessions#new'
 	match '/signout', to: 'sessions#destroy', via: :delete	
 	
+	match '/addbeacon', to: 'ibeacons#new'
 	
 	
 	match '/help', to: 'static_pages#help'
@@ -23,7 +24,7 @@ Beacon::Application.routes.draw do
 
   	resources :users
 	resources :sessions, only: [:new, :create, :destroy]
-	resources :ibeacons, only: [:create, :destroy]
+	resources :ibeacons, only: [:create, :edit, :destroy, :update]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

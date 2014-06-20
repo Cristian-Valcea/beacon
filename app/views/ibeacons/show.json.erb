@@ -6,6 +6,16 @@
 {
     "beacon_id": "<%= @ibeacon.beacon_id.to_json %>",
     "imageFile": "<%= @ibeacon.image1.url.to_json %>",
-    "logoFile": "<%= @ibeacon.logo.url.to_json %>"
+    "logoFile": "<%= @ibeacon.logo.url.to_json %>",
+    "tb1": "<%= @ibeacon.TabButton1.to_json %>",
+    "tb2": "<%= @ibeacon.TabButton2.to_json %>",
+    "tb3": "<%= @ibeacon.TabButton3.to_json %>",
+	"title1": "<%= @ibeacon.Title1.to_json %>",
+	"title2": "<%= @ibeacon.Title2.to_json %>",
+	"title3": "<%= @ibeacon.Title3.to_json %>",
+	"description1": "<%= @ibeacon.Description1.to_json %>",
+	"description2": "<%= @ibeacon.Description2.to_json %>",
+	"description3": "<%= @ibeacon.Description3.to_json %>",
+	"company": "<%= @ibeacon.Company.to_json %>"
 }
 <% end %>

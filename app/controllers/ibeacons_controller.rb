@@ -1,8 +1,12 @@
 class IbeaconsController < ApplicationController 
-	before_filter :signed_in_user, only: [:create, :destroy]
+	before_filter :signed_in_user, only: [:create, :show, :edit, :update, :destroy]
 	before_filter :correct_user,	only: :destroy
 	
 	respond_to :html, :json	
+	
+	def new 
+		@ibeacon = Ibeacon.new
+	end
 	
 	def create
 	@ibeacon = current_user.ibeacons.build(params[:ibeacon])
@@ -18,6 +22,27 @@ class IbeaconsController < ApplicationController
 		@ibeacon.destroy
 		redirect_back_or root_path
 	end
+	
+	def edit
+	    @ibeacon = current_ibeacon
+	end
+	
+	def update
+		@ibeacon = Ibeacon.find(params[:id])
+		if @ibeacon.update_attributes(params[:ibeacon])
+			flash[:success] = "Ibeacon updated"
+			redirect_to @current_user
+		else
+			render 'edit'
+		end
+	end	
+	
+	def show
+		@ibeacon = Ibeacon.find(params[:id])
+		respond_with @ibeacon       # added to respond with json
+	end
+	
+	
 	
 	def correct_user
 		@ibeacon = current_user.ibeacons.find_by_id(params[:id])
@@ -42,5 +67,13 @@ class IbeaconsController < ApplicationController
 		#format.json { render json: @user }
 		#respond_with @ibeacon       # added to respond with json
 	end
+	
+	private
+
+	  def current_ibeacon
+		@ibeacon = Ibeacon.find(params[:id])
+
+	  end  	
+	
 		 
 end
