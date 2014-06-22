@@ -10,6 +10,7 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'rmagick', :require => 'RMagick'
 gem 'carrierwave'
+gem 'fog','~> 1.3.1'
 
 group :production do
 	gem 'pg', '0.12.2'
